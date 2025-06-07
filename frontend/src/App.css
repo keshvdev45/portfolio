@@ -16,12 +16,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #10b981;
+  background: linear-gradient(45deg, #10b981, #06b6d4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #059669;
+  background: linear-gradient(45deg, #059669, #0891b2);
 }
 
 /* Smooth scrolling */
@@ -29,7 +29,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Terminal cursor animation */
+/* Enhanced cursor animation */
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -39,14 +39,222 @@ html {
   animation: blink 1s infinite;
 }
 
-/* Custom selection colors for the hacker theme */
+/* Glitch animations */
+@keyframes glitch-1 {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(2px); }
+  30% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  70% { transform: translateX(-2px); }
+  90% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+.animate-glitch-1 {
+  animation: glitch-1 0.3s infinite linear alternate-reverse;
+}
+
+.animate-glitch-2 {
+  animation: glitch-2 0.3s infinite linear alternate-reverse;
+}
+
+/* Matrix effect enhancement */
+@keyframes matrix-fall {
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(100vh); }
+}
+
+/* Selection colors for the hacker theme */
 ::selection {
   background-color: #10b981;
   color: #111827;
 }
 
-/* Font smoothing for better readability */
+/* Enhanced font smoothing */
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #111827;
+  overflow-x: hidden;
+}
+
+/* Perspective for 3D effects */
+.perspective {
+  perspective: 1000px;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(31, 41, 55, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Neon glow effects */
+.neon-green {
+  box-shadow: 0 0 20px #10b981, 0 0 40px #10b981, 0 0 60px #10b981;
+}
+
+.neon-cyan {
+  box-shadow: 0 0 20px #06b6d4, 0 0 40px #06b6d4, 0 0 60px #06b6d4;
+}
+
+/* Loading bar animation */
+@keyframes loading-bar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* Terminal cursor blink */
+@keyframes terminal-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Particle animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Hover glow effect */
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Text reveal animation */
+@keyframes text-reveal {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Scan line effect */
+@keyframes scan-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
+  animation: scan-line 2s infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing {
+  animation: typing 2s steps(40, end);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #10b981;
+}
+
+/* Enhanced transitions */
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Grid animation */
+@keyframes grid-appear {
+  0% { opacity: 0; transform: scale(0.8) rotateX(45deg); }
+  100% { opacity: 1; transform: scale(1) rotateX(0deg); }
+}
+
+.grid-appear {
+  animation: grid-appear 0.6s ease-out forwards;
+}
+
+/* Card flip effect */
+.card-flip {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+/* Progress bar enhancement */
+.progress-bar {
+  background: linear-gradient(90deg, #10b981, #06b6d4, #8b5cf6);
+  background-size: 200% 100%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2rem;
+  }
+  
+  .section-padding {
+    padding: 2rem 1rem;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-gray-300 {
+    color: #ffffff;
+  }
+  
+  .text-gray-400 {
+    color: #e5e5e5;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
 }
